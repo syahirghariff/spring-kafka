@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: spring-kafka
-  kafka:
-    bootstrap-servers: "${BOOTSTRAP_SERVER}"
-
-
-app:
-  test: value
