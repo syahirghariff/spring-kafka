@@ -6,4 +6,10 @@ spring:
 
 
 app:
-  test: value
+  topics:
+    - name: topic1
+      partitions: 1
+      replicas: 1
+    - name: topic2
+      partitions: 2
+      replicas: 1
