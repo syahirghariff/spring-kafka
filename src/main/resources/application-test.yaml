@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: spring-kafka
+  kafka:
+    bootstrap-servers: "127.0.0.1:9092"
+
+
+app:
+  topics:
+    - name: topic1
+      partitions: 1
+      replicas: 1
+    - name: topic2
+      partitions: 2
+      replicas: 1
