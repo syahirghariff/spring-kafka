@@ -1,0 +1,9 @@
+services: 
+  spring-kafka: 
+    image: spring-kafka
+    restart: always
+    ports: 
+      - "8090:8080"
+    environment: 
+      - BOOTSTRAP_SERVER=192.168.1.118:9092
+
