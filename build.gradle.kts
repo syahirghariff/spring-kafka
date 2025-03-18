@@ -22,6 +22,7 @@ dependencies {
 	implementation("org.springframework.kafka:spring-kafka:3.3.1")
 	implementation("org.springframework.boot:spring-boot-starter-validation:3.4.1")
 	implementation("org.springframework.boot:spring-boot-starter-web:3.4.1")
+	implementation ("org.apache.commons:commons-lang3:3.17.0")
 
 	// Lombok
 	compileOnly("org.projectlombok:lombok:1.18.36")
