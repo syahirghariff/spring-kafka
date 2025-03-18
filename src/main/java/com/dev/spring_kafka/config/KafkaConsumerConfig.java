@@ -1,5 +1,6 @@
 package com.dev.spring_kafka.config;
 
+import com.dev.spring_kafka.pojo.Greetings;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +10,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,4 +55,28 @@ public class KafkaConsumerConfig {
         factory.setRecordFilterStrategy(record -> record.value().contains("World"));
         return factory;
     }
+
+
+    // Consumer Greetings
+
+    @Bean
+    public ConsumerFactory<String, Greetings> greetingConsumerFactory() {
+
+        Map<String, Object> properties = new HashMap<>();
+        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "bar");
+        return new DefaultKafkaConsumerFactory<>(
+                properties,
+                new StringDeserializer(),
+                new JsonDeserializer<>(Greetings.class));
+    }
+
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, Greetings> greetingKafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, Greetings> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(greetingConsumerFactory());
+        return factory;
+    }
+
+
 }

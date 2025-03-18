@@ -1,6 +1,7 @@
 package com.dev.spring_kafka.service;
 
 
+import com.dev.spring_kafka.pojo.Greetings;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.PartitionOffset;
@@ -74,5 +75,12 @@ public class ListenMessageService {
     @KafkaListener( topics = {"topic2", "topic1"}, containerFactory = "filterKafkaListenerContainerFactory")
     public void listenWithFilter2(String message) {
         log.info("[listenWithFilter2] Received message with filtered, message={} ", message);
+    }
+
+
+    // Consumer
+    @KafkaListener(topics = {"greetings"}, containerFactory = "greetingKafkaListenerContainerFactory")
+    public void greetingListener(Greetings message) {
+        log.info("[greetingListener] Received message={} ", message);
     }
 }

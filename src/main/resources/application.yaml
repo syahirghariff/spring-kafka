@@ -13,3 +13,6 @@ app:
     - name: topic2
       partitions: 2
       replicas: 1
+    - name: greetings
+      partitions: 3
+      replicas: 1
