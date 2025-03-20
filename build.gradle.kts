@@ -24,6 +24,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web:3.4.1")
 	implementation ("org.apache.commons:commons-lang3:3.17.0")
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
 
 	// Lombok
 	compileOnly("org.projectlombok:lombok:1.18.36")

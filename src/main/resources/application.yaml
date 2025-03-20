@@ -16,3 +16,9 @@ app:
     - name: greetings
       partitions: 3
       replicas: 1
+    - name: farewell
+      partitions: 0
+      replicas: 1
+    - name: multitype
+      partitions: 4
+      replicas: 0
